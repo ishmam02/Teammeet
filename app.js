@@ -5,7 +5,7 @@ import 'express-async-errors';
 import bodyparser from 'body-parser';
 import cookieSession from 'cookie-session';
 import { currentUser, errorHandler, NotFoundError } from '@ishmam_tech/common';
-
+import path from 'path';
 import { currentUserRouter } from './routes/current-user.js';
 import { authRouter } from './routes/auth.js';
 import PeerServer from './services/PeerServer.js';
@@ -39,7 +39,6 @@ if (process.env.NODE_ENV === 'production') {
 
 	// Express will serve up the index.html file
 	// if it doesn't recognize the route
-	import path from 'path';
 	app.get('*', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
