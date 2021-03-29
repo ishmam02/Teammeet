@@ -39,7 +39,5 @@ new SocketServer(server).attach();
 app.all('*', async (_req, _res) => {
 	throw new NotFoundError();
 });
-
 app.use(errorHandler);
-
 export { app, server };
