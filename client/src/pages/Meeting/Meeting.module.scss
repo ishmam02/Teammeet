@@ -1,0 +1,12 @@
+.meeting {
+  max-width: 725px;
+  margin: auto;
+
+  ion-grid {
+    --ion-grid-padding: 0;
+
+    ion-col {
+      --ion-grid-column-padding: 0;
+    }
+  }
+}

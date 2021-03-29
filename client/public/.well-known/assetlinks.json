@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.codewaft.teammeet",
+      "sha256_cert_fingerprints": [
+        "00:C1:C7:35:20:35:8D:82:D6:E8:43:5D:64:85:7C:AC:24:67:89:30:D7:3B:9A:15:8D:87:A2:96:70:46:5A:B2"
+      ]
+    }
+  }
+]

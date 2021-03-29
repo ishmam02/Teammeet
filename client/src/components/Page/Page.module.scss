@@ -1,0 +1,87 @@
+$height: 100vh;
+$content-height: 70vh;
+$footer-height: calc(#{$height} - #{$content-height});
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.page {
+  height: $height;
+  animation-duration: 1s;
+  animation-name: fadeIn;
+
+  .main {
+    height: $content-height;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+      margin-top: 50px;
+    }
+  }
+
+  .footer {
+    height: $footer-height;
+    background: var(--ion-color-primary);
+    
+    .background {
+      width: 100%;
+      height: 77px;
+      margin-top: -1px; // SVG line fix
+      transform: rotate(180deg);
+    }
+  }
+
+  &.flip {
+    .main {
+      background: var(--ion-color-primary);
+    }
+
+    .footer {
+      background: initial;
+
+      .background {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &.small {
+    .main {
+      .content {
+        width: 250px;
+      }
+    }
+  }
+
+  &.large {
+    .main {
+      height: $height;
+
+      .content {
+        width: 725px;
+        max-height: $content-height;
+      }
+    }
+
+    .footer {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .page {
+    &.large {
+      .main {
+        .content {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

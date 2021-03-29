@@ -1,0 +1,34 @@
+.container {
+  position: relative;
+  background: var(--ion-color-dark);
+
+  &.square {
+    width: 100%;
+    padding-bottom: 100%;
+  }
+
+  &.wide {
+    width: 100%;
+    padding-bottom: calc(100% / (16/9));
+  }
+
+  .content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    .raiseHand {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    .memberRemove {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

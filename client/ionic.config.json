@@ -1,0 +1,7 @@
+{
+  "name": "teammeet",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
