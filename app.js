@@ -42,10 +42,6 @@ if (process.env.NODE_ENV === 'production') {
 	app.get('*', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
-} else {
-	app.all('*', async (_req, _res) => {
-		throw new NotFoundError();
-	});
 }
 
 app.use(errorHandler);
