@@ -1,9 +1,8 @@
-import dotenv from 'dotenv';
+
 import mongoose from 'mongoose';
 
 import { server } from './app.js';
 
-dotenv.config();
 
 const start = async () => {
 	if (!process.env.JWT_KEY) {
@@ -20,13 +19,12 @@ const start = async () => {
 			useCreateIndex: true
 		});
 		console.log('Connected to MongoDb');
+		server.listen(process.env.PORT || 8080, () => {
+			console.log(`Listening on port ${process.env.PORT}`);
+		});
 	} catch (err) {
 		console.error(err);
 	}
-
-	server.listen(process.env.PORT || 8080, () => {
-		console.log(`Listening on port ${process.env.PORT}`);
-	});
 };
 
 start();
