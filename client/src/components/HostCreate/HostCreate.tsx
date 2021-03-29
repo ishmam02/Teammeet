@@ -47,7 +47,7 @@ export default class HostCreate extends Component<any, HostState> {
   }
 
   copyCredentials () {
-    const appUrl = `https://${process.env.REACT_APP_HOST}`
+    const appUrl = `https://teammeet.herokuapp.com`
     const username = this.state.username
     const password = this.state.password
     const credentials = `Hi ${this.state.name},\nYou can start a meeting from ${appUrl}/start using the following credentials:\nUsername: ${username}\nPassword: ${password}`

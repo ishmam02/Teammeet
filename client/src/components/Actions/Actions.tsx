@@ -59,7 +59,7 @@ export default class Actions extends Component<ActionsProps, ActionsState> {
   }
 
   get inviteText () {
-    const url = `https://${process.env.REACT_APP_HOST}`
+    const url = `https://teammeet.herokuapp.com`
     const { id } = meetingSelectors(store.getState())
     return `Hi there,\nYou can join the meeting from ${url}/join?id=${id}`
   }
