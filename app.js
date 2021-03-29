@@ -1,8 +1,9 @@
 import http from 'http';
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import 'express-async-errors';
-import bodyParser from 'body-parser';
+import bodyparser from 'body-parser';
 import cookieSession from 'cookie-session';
 import { currentUser, errorHandler, NotFoundError } from '@ishmam_tech/common';
 
@@ -17,27 +18,37 @@ const server = http.createServer(app);
 
 app.use(cors());
 app.set('trust proxy', true);
-app.use(bodyParser.json());
+app.use(bodyparser.json());
 app.use(
 	cookieSession({
 		signed: false,
 		secure: process.env.NODE_ENV !== 'test'
 	})
 );
-app.use((req, res, next) => {
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE');
-	res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-	next();
-});
+
 app.use(currentUser);
 
 app.use(currentUserRouter);
 app.use(authRouter);
 new PeerServer(server, app).attach();
 new SocketServer(server).attach();
-app.all('*', async (_req, _res) => {
-	throw new NotFoundError();
-});
+
+if (process.env.NODE_ENV === 'production') {
+	// Express will serve up production assets
+	// like our main.js file, or main.css file!
+	app.use(express.static('client/build'));
+
+	// Express will serve up the index.html file
+	// if it doesn't recognize the route
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
+} else {
+	app.all('*', async (_req, _res) => {
+		throw new NotFoundError();
+	});
+}
+
 app.use(errorHandler);
+
 export { app, server };
