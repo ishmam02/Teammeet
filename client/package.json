@@ -61,7 +61,14 @@
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
-    "typescript": "3.8.3"
+    "typescript": "3.8.3",
+    "node-sass": "^4.14.1",
+    "@capacitor/cli": "2.4.2",
+    "@capacitor/ios": "^2.4.2",
+    "@ionic/cli": "^6.12.0",
+    "@types/lodash": "^4.14.162",
+    "@types/react-redux": "^7.1.9",
+    "@types/store": "^2.0.2"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -79,12 +86,6 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.4.2",
-    "@capacitor/ios": "^2.4.2",
-    "@ionic/cli": "^6.12.0",
-    "@types/lodash": "^4.14.162",
-    "@types/react-redux": "^7.1.9",
-    "@types/store": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "eslint": "^7.11.0",
@@ -93,8 +94,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.4",
-    "eslint-plugin-standard": "^4.0.1",
-    "node-sass": "^4.14.1"
+    "eslint-plugin-standard": "^4.0.1"
   },
   "description": "An Ionic project"
 }
