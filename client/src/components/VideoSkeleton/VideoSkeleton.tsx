@@ -16,12 +16,11 @@ export default class VideoSkeleton extends Component<VideoSkeletonProps> {
 
   render () {
     return (!this.props.video) &&
-      <IonCol size="12">
+      <IonCol>
         <div className={styles.videoSkeleton}>
           <Skeleton
-            width="100%"
-            height="0"
-            paddingBottom="calc(100% / (16/9))" />
+            width="100vw"
+            height="100vh" />
           <IonIcon
             className={styles.icon}
             icon={videocamOutline} />

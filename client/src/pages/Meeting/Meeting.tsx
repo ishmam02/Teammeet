@@ -229,7 +229,6 @@ class Meeting extends Component<MeetingProps> {
     return (
       <IonPage>
         <IonContent fullscreen>
-          <Page flip={false} container="large">
             <div className={styles.meeting}>
               <IonGrid>
                 <IonRow>
@@ -242,7 +241,6 @@ class Meeting extends Component<MeetingProps> {
               </IonGrid>
               <Actions handleEnd={this.handleEndClick} />
             </div>
-          </Page>
         </IonContent>
       </IonPage>
     )
